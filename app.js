@@ -11,7 +11,6 @@ function calculate(e) {
   let dd = birthDate[2];
   let mm = birthDate[1];
   let yyyy = birthDate[0];
-  //   let yy = yyyy.slice(2, 4);
 
   //check for palindrome in all formats
   let returnedFormat = checkWithAllFormats(dd, mm, yyyy);
@@ -46,6 +45,7 @@ function calculate(e) {
   }
 }
 
+//check for palindrome with all date formats
 function checkWithAllFormats(dd, mm, yyyy) {
   if (dd.length === 1) {
     dd = "0" + dd;
@@ -92,6 +92,7 @@ function checkNextPalindrome(dd, mm, yyyy, daysInAMonth) {
     nextDay++;
     previousDay--;
 
+    //check for palindrome in future
     if (nextDay > daysInAMonth[nextMonth - 1]) {
       nextDay = 1;
       nextMonth++;
@@ -106,6 +107,7 @@ function checkNextPalindrome(dd, mm, yyyy, daysInAMonth) {
       }
     }
 
+    //check for palindrome in the past
     if (previousDay < 1) {
       previousMonth--;
       previousDay = daysInAMonth[previousMonth - 1];
